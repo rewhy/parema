@@ -1,0 +1,63 @@
+include $(top_srcdir)/Makefile.tool.am
+
+EXTRA_DIST = docs/lk-manual.xml
+
+#----------------------------------------------------------------------------
+# fuzzer-<platform>
+#----------------------------------------------------------------------------
+
+noinst_PROGRAMS  = fuzzer-@VGCONF_ARCH_PRI@-@VGCONF_OS@
+if VGCONF_HAVE_PLATFORM_SEC
+noinst_PROGRAMS += fuzzer-@VGCONF_ARCH_SEC@-@VGCONF_OS@
+endif
+
+LACKEY_SOURCES_COMMON = do_main.c \
+												shadow_memory.c \
+												symbolic_execution.c \
+												taint_analysis.c \
+												util.c \
+												copy.c \
+												do_dexparse.c \
+												do_oatparse.c \
+												do_framework.c
+
+fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_SOURCES      = \
+	$(LACKEY_SOURCES_COMMON)
+fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_CPPFLAGS     = \
+	$(AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
+fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_CFLAGS       = \
+	$(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
+fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_DEPENDENCIES = \
+	$(TOOL_DEPENDENCIES_@VGCONF_PLATFORM_PRI_CAPS@)
+fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_LDADD        = \
+	$(TOOL_LDADD_@VGCONF_PLATFORM_PRI_CAPS@)
+fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_LDFLAGS      = \
+	$(TOOL_LDFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
+fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_LINK = \
+	$(top_builddir)/coregrind/link_tool_exe_@VGCONF_OS@ \
+	@VALT_LOAD_ADDRESS_PRI@ \
+	$(LINK) \
+	$(fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_CFLAGS) \
+	$(fuzzer_@VGCONF_ARCH_PRI@_@VGCONF_OS@_LDFLAGS)
+
+if VGCONF_HAVE_PLATFORM_SEC
+fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_SOURCES      = \
+	$(LACKEY_SOURCES_COMMON)
+fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_CPPFLAGS     = \
+	$(AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@)
+fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_CFLAGS       = \
+	$(AM_CFLAGS_@VGCONF_PLATFORM_SEC_CAPS@)
+fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_DEPENDENCIES = \
+	$(TOOL_DEPENDENCIES_@VGCONF_PLATFORM_SEC_CAPS@)
+fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_LDADD        = \
+	$(TOOL_LDADD_@VGCONF_PLATFORM_SEC_CAPS@)
+fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_LDFLAGS      = \
+	$(TOOL_LDFLAGS_@VGCONF_PLATFORM_SEC_CAPS@)
+fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_LINK = \
+	$(top_builddir)/coregrind/link_tool_exe_@VGCONF_OS@ \
+	@VALT_LOAD_ADDRESS_SEC@ \
+	$(LINK) \
+	$(fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_CFLAGS) \
+	$(fuzzer_@VGCONF_ARCH_SEC@_@VGCONF_OS@_LDFLAGS)
+endif
+
