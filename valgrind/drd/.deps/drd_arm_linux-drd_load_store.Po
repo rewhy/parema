@@ -1,0 +1,126 @@
+drd_arm_linux-drd_load_store.o: drd_load_store.c drd_bitmap.h \
+ pub_drd_bitmap.h drd_basics.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ ../include/pub_tool_oset.h ../include/pub_tool_basics.h \
+ ../include/pub_tool_libcbase.h drd_thread_bitmap.h drd_thread.h \
+ drd_segment.h drd_vc.h ../include/pub_tool_libcassert.h \
+ ../include/pub_tool_execontext.h ../include/pub_tool_stacktrace.h \
+ ../include/pub_tool_threadstate.h drd_bitmap.c drd_error.h \
+ ../include/pub_tool_debuginfo.h ../include/pub_tool_xarray.h \
+ ../include/pub_tool_errormgr.h ../include/pub_tool_execontext.h \
+ drd_suppression.h ../include/pub_tool_libcprint.h \
+ ../include/pub_tool_mallocfree.h drd_load_store.h ../VEX/pub/libvex.h \
+ ../VEX/pub/libvex_basictypes.h ../VEX/pub/libvex_ir.h \
+ ../include/pub_tool_tooliface.h ../include/pub_tool_errormgr.h \
+ drd_segment.c ../include/pub_tool_machine.h drd_thread.c drd_barrier.h \
+ drd_clientreq.h drd.h ../include/valgrind.h drd_clientobj.h \
+ ../include/pub_tool_xarray.h drd_cond.h drd_mutex.h drd_semaphore.h \
+ ../include/pub_tool_vki.h ../include/vki/vki-linux.h \
+ ../include/vki/vki-posixtypes-arm-linux.h ../include/vki/vki-arm-linux.h \
+ ../include/vki/vki-linux-drm.h ../include/pub_tool_options.h drd_vc.c \
+ ../VEX/pub/libvex_guest_offsets.h
+
+drd_bitmap.h:
+
+pub_drd_bitmap.h:
+
+drd_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+../include/pub_tool_oset.h:
+
+../include/pub_tool_basics.h:
+
+../include/pub_tool_libcbase.h:
+
+drd_thread_bitmap.h:
+
+drd_thread.h:
+
+drd_segment.h:
+
+drd_vc.h:
+
+../include/pub_tool_libcassert.h:
+
+../include/pub_tool_execontext.h:
+
+../include/pub_tool_stacktrace.h:
+
+../include/pub_tool_threadstate.h:
+
+drd_bitmap.c:
+
+drd_error.h:
+
+../include/pub_tool_debuginfo.h:
+
+../include/pub_tool_xarray.h:
+
+../include/pub_tool_errormgr.h:
+
+../include/pub_tool_execontext.h:
+
+drd_suppression.h:
+
+../include/pub_tool_libcprint.h:
+
+../include/pub_tool_mallocfree.h:
+
+drd_load_store.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+../include/pub_tool_tooliface.h:
+
+../include/pub_tool_errormgr.h:
+
+drd_segment.c:
+
+../include/pub_tool_machine.h:
+
+drd_thread.c:
+
+drd_barrier.h:
+
+drd_clientreq.h:
+
+drd.h:
+
+../include/valgrind.h:
+
+drd_clientobj.h:
+
+../include/pub_tool_xarray.h:
+
+drd_cond.h:
+
+drd_mutex.h:
+
+drd_semaphore.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+../include/pub_tool_options.h:
+
+drd_vc.c:
+
+../VEX/pub/libvex_guest_offsets.h:

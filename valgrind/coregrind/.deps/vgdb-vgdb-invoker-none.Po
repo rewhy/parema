@@ -1,0 +1,139 @@
+vgdb-vgdb-invoker-none.o: vgdb-invoker-none.c vgdb.h pub_core_basics.h \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_vki.h ../include/pub_tool_vki.h ../include/vki/vki-linux.h \
+ ../include/vki/vki-posixtypes-arm-linux.h ../include/vki/vki-arm-linux.h \
+ ../include/vki/vki-linux-drm.h pub_core_gdbserver.h \
+ ../include/pub_tool_gdbserver.h ../include/pub_tool_basics.h \
+ pub_core_options.h ../include/pub_tool_options.h ../VEX/pub/libvex.h \
+ ../VEX/pub/libvex_basictypes.h ../VEX/pub/libvex_ir.h pub_core_xarray.h \
+ ../include/pub_tool_xarray.h pub_core_threadstate.h \
+ ../include/pub_tool_threadstate.h pub_core_libcsetjmp.h \
+ ../include/pub_tool_libcsetjmp.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/setjmp.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/android/api-level.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/setjmp.h \
+ pub_core_guest.h ../include/pub_tool_guest.h \
+ ../VEX/pub/libvex_guest_arm.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/types.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stddef.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdint.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdint.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_wchar_limits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/posix_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/stddef.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/compiler.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/posix_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/kernel.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/sysmacros.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdio.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/time.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/time.h
+
+vgdb.h:
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_vki.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+pub_core_gdbserver.h:
+
+../include/pub_tool_gdbserver.h:
+
+../include/pub_tool_basics.h:
+
+pub_core_options.h:
+
+../include/pub_tool_options.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+pub_core_xarray.h:
+
+../include/pub_tool_xarray.h:
+
+pub_core_threadstate.h:
+
+../include/pub_tool_threadstate.h:
+
+pub_core_libcsetjmp.h:
+
+../include/pub_tool_libcsetjmp.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/setjmp.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/android/api-level.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/setjmp.h:
+
+pub_core_guest.h:
+
+../include/pub_tool_guest.h:
+
+../VEX/pub/libvex_guest_arm.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stddef.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdint.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdint.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_wchar_limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/posix_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/stddef.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/compiler.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/posix_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/kernel.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/sysmacros.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdio.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/time.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/time.h:

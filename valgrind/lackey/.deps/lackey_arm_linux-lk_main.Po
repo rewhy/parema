@@ -1,0 +1,44 @@
+lackey_arm_linux-lk_main.o: lk_main.c ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ ../include/pub_tool_tooliface.h ../include/pub_tool_errormgr.h \
+ ../include/pub_tool_execontext.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex.h ../VEX/pub/libvex_basictypes.h \
+ ../VEX/pub/libvex_ir.h ../include/pub_tool_libcassert.h \
+ ../include/pub_tool_libcprint.h ../include/pub_tool_debuginfo.h \
+ ../include/pub_tool_xarray.h ../include/pub_tool_libcbase.h \
+ ../include/pub_tool_options.h ../include/pub_tool_machine.h
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+../include/pub_tool_tooliface.h:
+
+../include/pub_tool_errormgr.h:
+
+../include/pub_tool_execontext.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+../include/pub_tool_libcassert.h:
+
+../include/pub_tool_libcprint.h:
+
+../include/pub_tool_debuginfo.h:
+
+../include/pub_tool_xarray.h:
+
+../include/pub_tool_libcbase.h:
+
+../include/pub_tool_options.h:
+
+../include/pub_tool_machine.h:

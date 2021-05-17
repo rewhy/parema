@@ -1,0 +1,675 @@
+#include "symbolic_execution.h"
+#include "pub_tool_libcprint.h"     // VG_(printf)
+#include "pub_tool_libcbase.h"      // VG_(memset)
+#include "pub_tool_mallocfree.h"    // VG_(malloc) VG_(free)
+#include "pub_tool_libcassert.h"    // VG_(tool_panic)
+
+void update_dep(Shadow* shadow, char* dep, UInt size)
+{
+	
+	tl_assert(DEP_MAX_SIZE >= size);
+	VG_(printf)("update_dep(): 0x%08x %s (%u)\n", (Addr)shadow, dep, size);
+
+	if (shadow->buffer == NULL) {
+		shadow->buffer = VG_(malloc)("", DEP_MAX_LEN);
+	}
+	VG_(snprintf)(shadow->buffer, DEP_MAX_LEN, "%s", dep);
+
+	shadow->size = size;
+
+	VG_(printf)("update_dep(): %s (%u)\n", shadow->buffer, shadow->size);
+}
+
+void free_dep(Shadow* shadow)
+{
+	if (shadow->buffer != NULL) {
+		// VG_(printf)("free_dep(): %s (%u)\n", shadow->buffer, shadow->size);
+		VG_(free)(shadow->buffer);
+		shadow->buffer = NULL;
+	}
+
+	shadow->size = 0;
+}
+
+//
+//  MEMORY
+//
+
+// Load I8
+static char* get_memory_dep8(UInt addr, char* dep)
+{
+	int i = 0;
+	Chunk* chunk = NULL;
+	Shadow* shadow = NULL;
+
+	for(i = 0; i < 8; i++) { // Connot support more than I64
+		chunk = get_chunk_for_reading(addr-i);
+		if (chunk == NULL) {
+			VG_(printf)("Find no chunk for %d\n", i);
+			continue;
+		}
+
+		shadow = chunk->bytes[(addr-i) & 0xffff];
+		if ( shadow == NULL ) {
+			VG_(printf)("Find no shadow for %d\n", i);
+			continue;
+		}
+		if ( shadow->buffer == NULL ) {
+			VG_(printf)("Find no shadow buffer for %d\n", i);
+			continue;
+		}
+
+		if ( shadow->size >= i * 8 + 8 ) {
+			break;
+		} else {
+			VG_(printf)("Shadow size (%d) doesn't containt the target address space.\n");
+			tl_assert(0);
+		}
+	}
+
+	switch (shadow->size)
+	{
+		case 8:
+			if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar8_(%s,0,8)", shadow->buffer); }
+			break;
+		case 16:
+			if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar16_(%s,0,8)", shadow->buffer); }
+			else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar16_(%s,8,8)", shadow->buffer); }
+			break;
+		case 32:
+			if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,0,8", shadow->buffer); }
+			else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,8,8)", shadow->buffer); }
+			else if (i == 2) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,16,8)", shadow->buffer); }
+			else if (i == 3) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,24,8)", shadow->buffer); }
+			break;
+		case 64:
+			if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,0,8)", shadow->buffer); }
+			else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,8,8)", shadow->buffer); }
+			else if (i == 2) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,16,8)", shadow->buffer); }
+			else if (i == 3) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,24,8)", shadow->buffer); }
+			else if (i == 4) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,32,8)", shadow->buffer); }
+			else if (i == 5) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,40,8)", shadow->buffer); }
+			else if (i == 6) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,48,8)", shadow->buffer); }
+			else if (i == 7) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,56,8)", shadow->buffer); }
+			break;
+		default:
+			VG_(printf)("Shadow size: %d\n", shadow->size);
+			tl_assert(0);
+	}
+	
+	if(dep[0] == '\0') {
+		VG_(printf)("addr = 0x%08x, size = %d, i = %d\n", addr, size, i);
+		tl_assert(dep[0] != '\0');
+	}
+	return dep;
+}
+
+// Load I16
+static char* get_memory_dep16(UInt addr, char* dep)
+{
+	int i = 0;
+	Chunk* chunks[8] = NULL;
+	Shadow* shadows[8] = NULL;
+	
+	for(i = 0; i < 8; i++) { // Connot support more than I64
+		chunks[i] = get_chunk_for_reading(addr+1-i);
+		if ( chunks[i] == NULL ) {
+			VG_(printf)("Find no chunk for %d\n", i);
+			continue;
+		}
+
+		shadows[i] = chunk->bytes[(addr+1-i) & 0xffff];
+		if ( shadows[i] == NULL ) {
+			VG_(printf)("Find no shadow for %d\n", i);
+			continue;
+		}
+		if ( shadows[i]->buffer == NULL ) {
+			VG_(printf)("Find no shadow buffer for %d\n", i);
+			continue;
+		}
+		if(i >= 0)
+			break;
+	}
+	tl_assert(i >= 0 && i < 8);
+	if(i == 0) {
+		switch (shadows[0]->size) {
+			case 8:  VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(0, Sar8_(%s,0,8))", shadows[0]->buffer);
+				break;
+			case 16: VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(0, Sar16_(%s,0,8))", shadows[0]->buffer);
+				break;
+			case 32: VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(0, Sar32_(%s,0,8))", shadows[0]->buffer);
+				break;
+			case 64: VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(0, Sar64_(%s,0,8))", shadows[0]->buffer);
+				break;
+			default: VG_(printf)("Un-support size I%d\n", shadows[0]->size); tl_assert(0);
+		}
+	} else if(i == 1) {
+		switch (shadow[1]->size) {
+			case 8:
+				if(shadow[0] == NULL) {
+					switch (shadows[0]->size) {
+						case 8:  VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(Sar8_(%s,0,8), Sar8_(%s,0,8))", shadows[1]->buffer, shadows[0]->buffer);
+										 break;
+						case 16:  VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(Sar8_(%s,0,8), Sar16_(%s,0,8))", shadows[1]->buffer, shadows[0]->buffer);
+										 break;
+						case 32:  VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(Sar8_(%s,0,8), Sar32_(%s,0,8))", shadows[1]->buffer, shadows[0]->buffer);
+										 break;
+						case 64:  VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(Sar8_(%s,0,8), Sar64_(%s,0,8))", shadows[1]->buffer, shadows[0]->buffer);
+										 break;
+						default: VG_(printf)("Un-support size I%d\n", shadows[0]->size); tl_assert(0);
+					}
+				} else {
+						VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(Sar8_(%s,0,8), 0)", shadows[1]->buffer);
+				}
+				break;
+			case 16:
+						VG_(snprintf)(dep, DEP_MAX_LEN, "Sar16_(%s,0,16)", shadows[1]->buffer);
+						break;
+			case 32:
+						VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,0,16)", shadows[1]->buffer);
+						break;
+			case 64:
+						VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,0,16)", shadows[1]->buffer);
+						break;
+			default:
+					VG_(printf)("Shadow size: %d\n", shadow->size);
+					tl_assert(0);
+					break;
+			}
+		}
+	} else {
+		if(i * 8 + 16 > shadows[i]->size) {
+			VG_(printf)("Target address extends the shadow memory....\n");
+			tl_assert(0);
+		}
+		
+		switch (shadows[i]->size) {
+			case 32:
+				VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,%d,16)", i*8, shadows[i]->buffer)
+					break;
+			case 64:
+				VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,%d,16)", i*8, shadows[i]->buffer)
+					break;
+			default:
+				VG_(printf)("Shadow size: %d\n", shadows[i]->size);
+				tl_assert(0);
+				break;
+		}
+	}
+	
+	if(dep[0] == '\0') {
+		VG_(printf)("addr = 0x%08x, size = %d, i = %d\n", addr, size, i);
+		tl_assert(dep[0] != '\0');
+	}
+	return dep;
+}
+
+static char* get_memory_dep32(UInt addr, char* dep)
+{
+	int i = 0;
+	Chunk* chunks = { NULL };
+	Shadow* shadows = { NULL };
+	
+	for(i = 0; i < 8; i++) { // Connot support more than I64
+		chunks[i] = get_chunk_for_reading(addr+3-i);
+		if (chunks[i] == NULL) {
+			VG_(printf)("Find no chunk for %d\n", i);
+			continue;
+		}
+
+		shadows[i] = chunks[i]->bytes[(addr+4-i) & 0xffff];
+		if ( shadows[i] == NULL ) {
+			VG_(printf)("Find no shadow for %d\n", i);
+			continue;
+		}
+		
+		if ( shadows[i]->buffer == NULL ) {
+			VG_(printf)("Find no shadow buffer for %d\n", i);
+			continue;
+		}
+		if(i >= 0)
+			break;
+	}
+
+	tl_assert(i >= 0 && i < 8);
+
+	if( i < 0) {
+	} else if (i == 0) {
+	} else {
+	}
+
+		if(i == 0) {
+			switch (shadow->size) {
+				case 8:
+					chunk1 = get_chunk_for_reading(addr+1);
+					chunk2 = get_chunk_for_reading(addr+2);
+					chunk3 = get_chunk_for_reading(addr+3);
+					if (chunk1 == NULL || chunk2 = NULL || chunk3 = NULL) {
+						VG_(printf)("0x%08x 0x%08x 0x%08x\n", chunk1, chunk2, chunk3);
+						tl_assert(0);
+						break;
+					}
+					
+					shadow1 = chunk1->bytes[(addr+1) & 0xffff];
+					shadow2 = chunk2->bytes[(addr+2) & 0xffff];
+					shadow3 = chunk3->bytes[(addr+3) & 0xffff];
+					if ( shadow1 == NULL || shadow2 == NULL || shadow3 == NULL ) {
+						VG_(printf)("0x%08x 0x%08x 0x%08x\n", shadow1, shadow2, shadow3);
+						tl_assert(0);
+						break;
+					}
+	
+					VG_(snprintf)(dep, DEP_MAX_LEN, "Cat16(Sar8_(%s,0,8), Sar8_(%s,0,8), Sar8_(%s,0,8), Sar8_(%s,0,8))", 
+							shadow->buffer, shadow1->buffer, shadow2->buffer, shadow3->buffer)
+					break;
+				case 16:
+					chunk1 = get_chunk_for_reading(addr+2);
+					if (chunk1 == NULL || chunk2 = NULL || chunk3 = NULL) {
+						VG_(printf)("0x%08x 0x%08x 0x%08x\n", chunk1, chunk2, chunk3);
+						tl_assert(0);
+						break;
+					}
+					
+					shadow1 = chunk1->bytes[(addr+2) & 0xffff];
+					if ( shadow1 == NULL || shadow2 == NULL || shadow3 == NULL ) {
+						VG_(printf)("0x%08x 0x%08x 0x%08x\n", shadow1, shadow2, shadow3);
+						tl_assert(0);
+						break;
+					}
+					VG_(snprintf)(dep, DEP_MAX_LEN, "Sar16_(%s,0,16)", shadow->buffer)
+					chunk2 = get_chunk_for_reading(addr+2);
+					break;
+				case 32:
+					VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,0,16)", shadow->buffer)
+					break;
+				case 64:
+					VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,0,16)", shadow->buffer)
+					break;
+				default:
+					VG_(printf)("Shadow size: %d\n", shadow->size);
+					tl_assert(0);
+					break;
+			}
+		} else {
+			if(i * 8 + 16 > shadow->size) {
+				VG_(printf)("Target address extends the shadow memory....\n");
+				tl_assert(0);
+			}
+			switch (shadow->size) {
+				case 32:
+					VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,%d,16)", i*8, shadow->buffer)
+					break;
+				case 64:
+					VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,%d,16)", i*8, shadow->buffer)
+					break;
+				default:
+					VG_(printf)("Shadow size: %d\n", shadow->size);
+					tl_assert(0);
+					break;
+			}
+		}
+		break;
+	}
+	
+	if(dep[0] == '\0') {
+		VG_(printf)("addr = 0x%08x, size = %d, i = %d\n", addr, size, i);
+		tl_assert(dep[0] != '\0');
+	}
+	return dep;
+}
+char* get_memory_dep(UInt addr, UInt size, char* dep)
+{
+	int i;
+	Chunk* chunk;
+	Shadow* shadow;
+
+	for (i = 0; i < DEP_MAX_SIZE/8; i++)
+	//for (i = 0; i < size/8; i++)
+	{
+		chunk = get_chunk_for_reading(addr-i);
+		//chunk = get_chunk_for_reading(addr+i);
+		if (chunk == NULL) {
+			VG_(printf)("Find no chunk for %d\n", i);
+			continue;
+		}
+
+		shadow = chunk->bytes[(addr-i) & 0xffff];
+		//shadow = chunk->bytes[(addr+i) & 0xffff];
+		if ( shadow == NULL ) {
+			VG_(printf)("Find no shadow for %d\n", i);
+			continue;
+		}
+
+		if ( shadow->buffer == NULL ) {
+			VG_(printf)("Find no shadow buffer for %d\n", i);
+			continue;
+		}
+
+		switch (shadow->size)
+		{
+			case 8:
+				if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "%s", shadow->buffer); }
+				break;
+			case 16:
+				if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "%s", shadow->buffer); }
+				else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar16_(%s,8)", shadow->buffer); }
+				break;
+			case 32:
+				if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "%s", shadow->buffer); }
+				else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,8)", shadow->buffer); }
+				else if (i == 2) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,16)", shadow->buffer); }
+				else if (i == 3) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,24)", shadow->buffer); }
+				break;
+			case 64:
+				if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "%s", shadow->buffer); }
+				else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,8)", shadow->buffer); }
+				else if (i == 2) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,16)", shadow->buffer); }
+				else if (i == 3) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,24)", shadow->buffer); }
+				else if (i == 4) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,32)", shadow->buffer); }
+				else if (i == 5) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,40)", shadow->buffer); }
+				else if (i == 6) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,48)", shadow->buffer); }
+				else if (i == 7) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,56)", shadow->buffer); }
+				break;
+			default:
+				VG_(printf)("Shadow size: %d\n", shadow->size);
+				tl_assert(0);
+		}
+
+		if (dep[0] != '\0') {
+			break;
+		}
+	}
+
+	if(dep[0] == '\0') {
+		VG_(printf)("addr = 0x%08x, size = %d, i = %d\n", addr, size, i);
+		tl_assert(dep[0] != '\0');
+	}
+	return dep;
+}
+
+void update_memory_dep(UInt addr, char* dep, UInt size)
+{
+	Chunk* chunk;
+	Shadow* shadow;
+
+	chunk = get_chunk_for_writing(addr);
+
+	shadow = chunk->bytes[addr & 0xffff];
+	tl_assert(shadow != NULL);
+
+	update_dep(shadow, dep, size);
+	free_memory_dep(addr+1, size-8);
+	
+	VG_(printf)("update_memory_dep(): 0x%08x %d %s\n", addr, size, dep);
+}
+
+void free_memory_dep(UInt addr, UInt size)
+{
+	Chunk* chunk;
+	Shadow* shadow;
+	int i;
+	Bool is_freed = False;
+
+	for (i = 0; i < size/8; i++)
+	{
+		chunk = get_chunk_for_reading(addr+i);
+		if (chunk == NULL)
+			continue;
+
+		shadow = chunk->bytes[(addr+i) & 0xffff];
+		if (shadow == NULL)
+			continue;
+
+		free_dep(shadow);
+		is_freed = True;
+	}
+	// VG_(printf)("free_memory_dep(): 0x%08x %d\n", addr, size);
+	// VG_(printf)("free_memory_dep()\n");
+	if( is_freed )
+		VG_(printf)(" 0x%08x %d\n", addr, size);
+}
+
+//
+//  REGISTERS
+//
+
+char* get_register_dep(UInt offset)
+{
+	guest_register reg;
+	Shadow shadow;
+
+	reg = get_reg_from_offset(offset);
+	tl_assert(reg != guest_INVALID);
+
+	shadow = registers[reg];
+	tl_assert(shadow.buffer != NULL);
+
+	return shadow.buffer;
+}
+
+void update_register_dep(UInt offset, UInt size, char* dep)
+{
+	guest_register reg = get_reg_from_offset(offset);
+	tl_assert(reg != guest_INVALID);
+
+	update_dep(&registers[reg], dep, size);
+}
+
+void free_register_dep(UInt offset)
+{
+	guest_register reg = get_reg_from_offset(offset);
+	tl_assert(reg != guest_INVALID);
+
+	free_dep(&registers[reg]);
+}
+
+//
+//  TEMPORARIES
+//
+
+char* get_temporary_dep(IRTemp tmp)
+{
+	Shadow shadow;
+
+	if(tmp >= MAX_TEMPORARIES) {
+		VG_(printf)("tmp=0x%08X fail\n", tmp);
+		tl_assert(0);
+	}
+	shadow = shadowTempArray[tmp];
+	if(shadow.buffer == NULL) {
+		VG_(printf)("tmp = %d\n", tmp);
+		tl_assert(shadow.buffer != NULL);
+	}
+	return shadow.buffer;
+}
+
+void update_temporary_dep(IRTemp tmp, char* dep, UInt dep_size)
+{
+	tl_assert(tmp < MAX_TEMPORARIES);
+	update_dep(&shadowTempArray[tmp], dep, dep_size);
+}
+
+void free_temporary_dep(IRTemp tmp)
+{
+	tl_assert(tmp < MAX_TEMPORARIES);
+
+	free_dep(&shadowTempArray[tmp]);
+}
+char* get_memory_dep(UInt addr, UInt size, char* dep)
+{
+	int i;
+	Chunk* chunk;
+	Shadow* shadow;
+
+	for (i = 0; i < DEP_MAX_SIZE/8; i++)
+	//for (i = 0; i < size/8; i++)
+	{
+		chunk = get_chunk_for_reading(addr-i);
+		//chunk = get_chunk_for_reading(addr+i);
+		if (chunk == NULL) {
+			VG_(printf)("Find no chunk for %d\n", i);
+			continue;
+		}
+
+		shadow = chunk->bytes[(addr-i) & 0xffff];
+		//shadow = chunk->bytes[(addr+i) & 0xffff];
+		if ( shadow == NULL ) {
+			VG_(printf)("Find no shadow for %d\n", i);
+			continue;
+		}
+
+		if ( shadow->buffer == NULL ) {
+			VG_(printf)("Find no shadow buffer for %d\n", i);
+			continue;
+		}
+
+		switch (shadow->size)
+		{
+			case 8:
+				if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "%s", shadow->buffer); }
+				break;
+			case 16:
+				if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "%s", shadow->buffer); }
+				else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar16_(%s,8)", shadow->buffer); }
+				break;
+			case 32:
+				if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "%s", shadow->buffer); }
+				else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,8)", shadow->buffer); }
+				else if (i == 2) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,16)", shadow->buffer); }
+				else if (i == 3) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar32_(%s,24)", shadow->buffer); }
+				break;
+			case 64:
+				if      (i == 0) { VG_(snprintf)(dep, DEP_MAX_LEN, "%s", shadow->buffer); }
+				else if (i == 1) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,8)", shadow->buffer); }
+				else if (i == 2) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,16)", shadow->buffer); }
+				else if (i == 3) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,24)", shadow->buffer); }
+				else if (i == 4) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,32)", shadow->buffer); }
+				else if (i == 5) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,40)", shadow->buffer); }
+				else if (i == 6) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,48)", shadow->buffer); }
+				else if (i == 7) { VG_(snprintf)(dep, DEP_MAX_LEN, "Sar64_(%s,56)", shadow->buffer); }
+				break;
+			default:
+				VG_(printf)("Shadow size: %d\n", shadow->size);
+				tl_assert(0);
+		}
+
+		if (dep[0] != '\0') {
+			break;
+		}
+	}
+
+	if(dep[0] == '\0') {
+		VG_(printf)("addr = 0x%08x, size = %d, i = %d\n", addr, size, i);
+		tl_assert(dep[0] != '\0');
+	}
+	return dep;
+}
+
+void update_memory_dep(UInt addr, char* dep, UInt size)
+{
+	Chunk* chunk;
+	Shadow* shadow;
+
+	chunk = get_chunk_for_writing(addr);
+
+	shadow = chunk->bytes[addr & 0xffff];
+	tl_assert(shadow != NULL);
+
+	update_dep(shadow, dep, size);
+	free_memory_dep(addr+1, size-8);
+	
+	VG_(printf)("update_memory_dep(): 0x%08x %d %s\n", addr, size, dep);
+}
+
+void free_memory_dep(UInt addr, UInt size)
+{
+	Chunk* chunk;
+	Shadow* shadow;
+	int i;
+	Bool is_freed = False;
+
+	for (i = 0; i < size/8; i++)
+	{
+		chunk = get_chunk_for_reading(addr+i);
+		if (chunk == NULL)
+			continue;
+
+		shadow = chunk->bytes[(addr+i) & 0xffff];
+		if (shadow == NULL)
+			continue;
+
+		free_dep(shadow);
+		is_freed = True;
+	}
+	// VG_(printf)("free_memory_dep(): 0x%08x %d\n", addr, size);
+	// VG_(printf)("free_memory_dep()\n");
+	if( is_freed )
+		VG_(printf)(" 0x%08x %d\n", addr, size);
+}
+
+//
+//  REGISTERS
+//
+
+char* get_register_dep(UInt offset)
+{
+	guest_register reg;
+	Shadow shadow;
+
+	reg = get_reg_from_offset(offset);
+	tl_assert(reg != guest_INVALID);
+
+	shadow = registers[reg];
+	tl_assert(shadow.buffer != NULL);
+
+	return shadow.buffer;
+}
+
+void update_register_dep(UInt offset, UInt size, char* dep)
+{
+	guest_register reg = get_reg_from_offset(offset);
+	tl_assert(reg != guest_INVALID);
+
+	update_dep(&registers[reg], dep, size);
+}
+
+void free_register_dep(UInt offset)
+{
+	guest_register reg = get_reg_from_offset(offset);
+	tl_assert(reg != guest_INVALID);
+
+	free_dep(&registers[reg]);
+}
+
+//
+//  TEMPORARIES
+//
+
+char* get_temporary_dep(IRTemp tmp)
+{
+	Shadow shadow;
+
+	if(tmp >= MAX_TEMPORARIES) {
+		VG_(printf)("tmp=0x%08X fail\n", tmp);
+		tl_assert(0);
+	}
+	shadow = shadowTempArray[tmp];
+	if(shadow.buffer == NULL) {
+		VG_(printf)("tmp = %d\n", tmp);
+		tl_assert(shadow.buffer != NULL);
+	}
+	return shadow.buffer;
+}
+
+void update_temporary_dep(IRTemp tmp, char* dep, UInt dep_size)
+{
+	tl_assert(tmp < MAX_TEMPORARIES);
+	update_dep(&shadowTempArray[tmp], dep, dep_size);
+}
+
+void free_temporary_dep(IRTemp tmp)
+{
+	tl_assert(tmp < MAX_TEMPORARIES);
+
+	free_dep(&shadowTempArray[tmp]);
+}

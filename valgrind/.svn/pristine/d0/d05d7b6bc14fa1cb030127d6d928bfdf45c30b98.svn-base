@@ -1,0 +1,41 @@
+fuzzer_amd64_linux-taint_analysis.o: taint_analysis.c \
+ /usr/include/stdc-predef.h taint_analysis.h shadow_memory.h \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ ../include/pub_tool_tooliface.h ../include/pub_tool_errormgr.h \
+ ../include/pub_tool_execontext.h ../VEX/pub/libvex.h \
+ ../VEX/pub/libvex_basictypes.h ../VEX/pub/libvex_ir.h \
+ ../include/pub_tool_libcassert.h ../include/pub_tool_machine.h \
+ ../include/pub_tool_libcbase.h ../include/pub_tool_mallocfree.h
+
+/usr/include/stdc-predef.h:
+
+taint_analysis.h:
+
+shadow_memory.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h:
+
+../include/pub_tool_tooliface.h:
+
+../include/pub_tool_errormgr.h:
+
+../include/pub_tool_execontext.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+../include/pub_tool_libcassert.h:
+
+../include/pub_tool_machine.h:
+
+../include/pub_tool_libcbase.h:
+
+../include/pub_tool_mallocfree.h:

@@ -1,0 +1,36 @@
+vgpreload_core_arm_linux_so-vg_preloaded.o: vg_preloaded.c \
+ pub_core_basics.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_clreq.h ../include/pub_tool_clreq.h ../include/valgrind.h \
+ pub_core_debuginfo.h ../include/pub_tool_debuginfo.h \
+ ../include/pub_tool_basics.h ../include/pub_tool_xarray.h \
+ pub_core_redir.h ../include/pub_tool_redir.h ../config.h
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_clreq.h:
+
+../include/pub_tool_clreq.h:
+
+../include/valgrind.h:
+
+pub_core_debuginfo.h:
+
+../include/pub_tool_debuginfo.h:
+
+../include/pub_tool_basics.h:
+
+../include/pub_tool_xarray.h:
+
+pub_core_redir.h:
+
+../include/pub_tool_redir.h:
+
+../config.h:

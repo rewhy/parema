@@ -1,0 +1,2 @@
+m_syswrap/libcoregrind_arm_linux_a-syscall-ppc64be-linux.o: \
+ m_syswrap/syscall-ppc64be-linux.S

@@ -1,0 +1,9 @@
+priv/libvex_arm_linux_a-tilegx_disasm.o: priv/tilegx_disasm.c \
+ priv/tilegx_disasm.h ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h
+
+priv/tilegx_disasm.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:

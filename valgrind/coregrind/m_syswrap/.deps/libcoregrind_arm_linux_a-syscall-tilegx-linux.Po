@@ -1,0 +1,2 @@
+m_syswrap/libcoregrind_arm_linux_a-syscall-tilegx-linux.o: \
+ m_syswrap/syscall-tilegx-linux.S

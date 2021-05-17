@@ -1,0 +1,51 @@
+helgrind_arm_linux-hg_addrdescr.o: hg_addrdescr.c \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ ../include/pub_tool_libcbase.h ../include/pub_tool_basics.h \
+ ../include/pub_tool_libcprint.h ../include/pub_tool_libcassert.h \
+ ../include/pub_tool_wordfm.h ../include/pub_tool_xarray.h \
+ ../include/pub_tool_execontext.h ../include/pub_tool_debuginfo.h \
+ ../include/pub_tool_xarray.h ../include/pub_tool_threadstate.h \
+ ../include/pub_tool_aspacemgr.h ../include/pub_tool_addrinfo.h \
+ ../include/pub_tool_aspacemgr.h hg_basics.h hg_wordset.h \
+ hg_lock_n_thread.h hg_addrdescr.h
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+../include/pub_tool_libcbase.h:
+
+../include/pub_tool_basics.h:
+
+../include/pub_tool_libcprint.h:
+
+../include/pub_tool_libcassert.h:
+
+../include/pub_tool_wordfm.h:
+
+../include/pub_tool_xarray.h:
+
+../include/pub_tool_execontext.h:
+
+../include/pub_tool_debuginfo.h:
+
+../include/pub_tool_xarray.h:
+
+../include/pub_tool_threadstate.h:
+
+../include/pub_tool_aspacemgr.h:
+
+../include/pub_tool_addrinfo.h:
+
+../include/pub_tool_aspacemgr.h:
+
+hg_basics.h:
+
+hg_wordset.h:
+
+hg_lock_n_thread.h:
+
+hg_addrdescr.h:

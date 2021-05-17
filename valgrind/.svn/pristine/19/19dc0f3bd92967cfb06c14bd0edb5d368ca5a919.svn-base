@@ -1,0 +1,2 @@
+m_syswrap/libcoregrind_arm_linux_a-syswrap-x86-solaris.o: \
+ m_syswrap/syswrap-x86-solaris.c

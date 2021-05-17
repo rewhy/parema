@@ -1,0 +1,29 @@
+m_syswrap/libcoregrind_arm_linux_a-syswrap-xen.o: m_syswrap/syswrap-xen.c \
+ pub_core_basics.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_vki.h ../include/pub_tool_vki.h ../include/vki/vki-linux.h \
+ ../include/vki/vki-posixtypes-arm-linux.h ../include/vki/vki-arm-linux.h \
+ ../include/vki/vki-linux-drm.h pub_core_basics.h
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_vki.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+pub_core_basics.h:

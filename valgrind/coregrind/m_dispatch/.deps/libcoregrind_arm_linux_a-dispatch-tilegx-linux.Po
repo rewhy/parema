@@ -1,0 +1,2 @@
+m_dispatch/libcoregrind_arm_linux_a-dispatch-tilegx-linux.o: \
+ m_dispatch/dispatch-tilegx-linux.S

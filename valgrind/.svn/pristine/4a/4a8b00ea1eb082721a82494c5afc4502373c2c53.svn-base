@@ -1,0 +1,13 @@
+priv/libvex_arm_linux_a-ir_match.o: priv/ir_match.c priv/main_util.h \
+ ../VEX/pub/libvex_basictypes.h priv/ir_match.h ../VEX/pub/libvex_ir.h \
+ ../VEX/pub/libvex_basictypes.h
+
+priv/main_util.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+priv/ir_match.h:
+
+../VEX/pub/libvex_ir.h:
+
+../VEX/pub/libvex_basictypes.h:

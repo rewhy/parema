@@ -1,0 +1,231 @@
+valgrind-launcher-linux.o: launcher-linux.c pub_core_debuglog.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_basics.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex_basictypes.h pub_core_vki.h ../include/pub_tool_vki.h \
+ ../include/vki/vki-linux.h ../include/vki/vki-posixtypes-arm-linux.h \
+ ../include/vki/vki-arm-linux.h ../include/vki/vki-linux-drm.h \
+ pub_core_libcproc.h ../config.h ../include/pub_tool_libcproc.h \
+ ../include/pub_tool_basics.h ../include/pub_tool_vki.h pub_core_ume.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/assert.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/android/api-level.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/ctype.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/elf.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdint.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdint.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stddef.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_wchar_limits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/exec_elf.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/exec.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/errno.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/errno.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/errno.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/errno.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/errno-base.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/fcntl.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/posix_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/stddef.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/compiler.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/posix_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/kernel.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/sysmacros.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/fcntl.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/fcntl.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/fcntl.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/unistd.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/select.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/time.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/time.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/signal.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed/limits.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed/syslimits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/limits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/limits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/limits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/internal_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/limits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/syslimits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/page.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/string.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/malloc.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/signal.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/signal.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/sigcontext.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/siginfo.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/siginfo.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/ucontext.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/user.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/sysconf.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/capability.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/pathconf.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdio.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdlib.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/alloca.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/strings.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/memory.h
+
+pub_core_debuglog.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+pub_core_vki.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+pub_core_libcproc.h:
+
+../config.h:
+
+../include/pub_tool_libcproc.h:
+
+../include/pub_tool_basics.h:
+
+../include/pub_tool_vki.h:
+
+pub_core_ume.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/assert.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/android/api-level.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/ctype.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/elf.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdint.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdint.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stddef.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_wchar_limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/exec_elf.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/exec.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/errno.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/errno.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/errno.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/errno.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/errno-base.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/fcntl.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/posix_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/stddef.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/compiler.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/posix_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/kernel.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/sysmacros.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/fcntl.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/fcntl.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/fcntl.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/unistd.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/select.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/time.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/time.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/signal.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed/limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed/syslimits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/internal_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/syslimits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/page.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/string.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/malloc.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/signal.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/signal.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/sigcontext.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/siginfo.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm-generic/siginfo.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/ucontext.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/user.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/sysconf.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/capability.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/pathconf.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdio.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdlib.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/alloca.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/strings.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/memory.h:

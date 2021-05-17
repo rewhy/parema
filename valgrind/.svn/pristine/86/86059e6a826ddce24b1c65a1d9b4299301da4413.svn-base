@@ -1,0 +1,68 @@
+m_replacemalloc/libreplacemalloc_toolpreload_arm_linux_a-vg_replace_malloc.o: \
+ m_replacemalloc/vg_replace_malloc.c pub_core_basics.h \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_vki.h ../include/pub_tool_vki.h ../include/vki/vki-linux.h \
+ ../include/vki/vki-posixtypes-arm-linux.h ../include/vki/vki-arm-linux.h \
+ ../include/vki/vki-linux-drm.h pub_core_basics.h pub_core_clreq.h \
+ ../include/pub_tool_clreq.h ../include/valgrind.h pub_core_debuginfo.h \
+ ../include/pub_tool_debuginfo.h ../include/pub_tool_basics.h \
+ ../include/pub_tool_xarray.h pub_core_mallocfree.h \
+ ../include/pub_tool_mallocfree.h pub_core_redir.h \
+ ../include/pub_tool_redir.h ../config.h pub_core_debuginfo.h \
+ pub_core_replacemalloc.h ../include/pub_tool_replacemalloc.h \
+ pub_core_mallocfree.h
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_vki.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+pub_core_basics.h:
+
+pub_core_clreq.h:
+
+../include/pub_tool_clreq.h:
+
+../include/valgrind.h:
+
+pub_core_debuginfo.h:
+
+../include/pub_tool_debuginfo.h:
+
+../include/pub_tool_basics.h:
+
+../include/pub_tool_xarray.h:
+
+pub_core_mallocfree.h:
+
+../include/pub_tool_mallocfree.h:
+
+pub_core_redir.h:
+
+../include/pub_tool_redir.h:
+
+../config.h:
+
+pub_core_debuginfo.h:
+
+pub_core_replacemalloc.h:
+
+../include/pub_tool_replacemalloc.h:
+
+pub_core_mallocfree.h:

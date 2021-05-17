@@ -1,0 +1,31 @@
+fuzzer_x86_linux-util.o: util.c /usr/include/stdc-predef.h util.h \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h \
+ ../include/pub_tool_tooliface.h ../include/pub_tool_errormgr.h \
+ ../include/pub_tool_execontext.h ../VEX/pub/libvex.h \
+ ../VEX/pub/libvex_basictypes.h ../VEX/pub/libvex_ir.h \
+ ../include/pub_tool_libcbase.h
+
+/usr/include/stdc-predef.h:
+
+util.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h:
+
+../include/pub_tool_tooliface.h:
+
+../include/pub_tool_errormgr.h:
+
+../include/pub_tool_execontext.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+../include/pub_tool_libcbase.h:

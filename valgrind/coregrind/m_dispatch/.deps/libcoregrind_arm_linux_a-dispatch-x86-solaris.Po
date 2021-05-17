@@ -1,0 +1,2 @@
+m_dispatch/libcoregrind_arm_linux_a-dispatch-x86-solaris.o: \
+ m_dispatch/dispatch-x86-solaris.S

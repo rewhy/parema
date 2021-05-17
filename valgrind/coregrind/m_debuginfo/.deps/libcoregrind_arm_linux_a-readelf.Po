@@ -1,0 +1,150 @@
+m_debuginfo/libcoregrind_arm_linux_a-readelf.o: m_debuginfo/readelf.c \
+ pub_core_basics.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_vki.h ../include/pub_tool_vki.h ../include/vki/vki-linux.h \
+ ../include/vki/vki-posixtypes-arm-linux.h ../include/vki/vki-arm-linux.h \
+ ../include/vki/vki-linux-drm.h pub_core_basics.h pub_core_debuginfo.h \
+ ../include/pub_tool_debuginfo.h ../include/pub_tool_basics.h \
+ ../include/pub_tool_xarray.h pub_core_libcbase.h \
+ ../include/pub_tool_libcbase.h pub_core_libcprint.h \
+ ../include/pub_tool_libcprint.h pub_core_libcassert.h \
+ ../include/pub_tool_libcassert.h pub_core_machine.h \
+ ../include/pub_tool_machine.h ../VEX/pub/libvex.h \
+ ../VEX/pub/libvex_basictypes.h ../VEX/pub/libvex_ir.h pub_core_options.h \
+ ../include/pub_tool_options.h pub_core_xarray.h \
+ ../include/pub_tool_xarray.h pub_core_oset.h ../include/pub_tool_oset.h \
+ pub_core_tooliface.h ../include/pub_tool_tooliface.h \
+ ../include/pub_tool_errormgr.h ../include/pub_tool_execontext.h \
+ pub_core_xarray.h m_debuginfo/priv_misc.h m_debuginfo/priv_image.h \
+ m_debuginfo/priv_d3basics.h m_debuginfo/priv_tytypes.h \
+ m_debuginfo/priv_storage.h pub_core_deduppoolalloc.h \
+ ../include/pub_tool_deduppoolalloc.h m_debuginfo/priv_readelf.h \
+ m_debuginfo/priv_readdwarf.h m_debuginfo/priv_readdwarf3.h \
+ m_debuginfo/priv_readexidx.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/elf.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdint.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdint.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stddef.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_wchar_limits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/android/api-level.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/exec_elf.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/exec.h
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_vki.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+pub_core_basics.h:
+
+pub_core_debuginfo.h:
+
+../include/pub_tool_debuginfo.h:
+
+../include/pub_tool_basics.h:
+
+../include/pub_tool_xarray.h:
+
+pub_core_libcbase.h:
+
+../include/pub_tool_libcbase.h:
+
+pub_core_libcprint.h:
+
+../include/pub_tool_libcprint.h:
+
+pub_core_libcassert.h:
+
+../include/pub_tool_libcassert.h:
+
+pub_core_machine.h:
+
+../include/pub_tool_machine.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+pub_core_options.h:
+
+../include/pub_tool_options.h:
+
+pub_core_xarray.h:
+
+../include/pub_tool_xarray.h:
+
+pub_core_oset.h:
+
+../include/pub_tool_oset.h:
+
+pub_core_tooliface.h:
+
+../include/pub_tool_tooliface.h:
+
+../include/pub_tool_errormgr.h:
+
+../include/pub_tool_execontext.h:
+
+pub_core_xarray.h:
+
+m_debuginfo/priv_misc.h:
+
+m_debuginfo/priv_image.h:
+
+m_debuginfo/priv_d3basics.h:
+
+m_debuginfo/priv_tytypes.h:
+
+m_debuginfo/priv_storage.h:
+
+pub_core_deduppoolalloc.h:
+
+../include/pub_tool_deduppoolalloc.h:
+
+m_debuginfo/priv_readelf.h:
+
+m_debuginfo/priv_readdwarf.h:
+
+m_debuginfo/priv_readdwarf3.h:
+
+m_debuginfo/priv_readexidx.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/elf.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdint.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdint.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stddef.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_wchar_limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/android/api-level.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/exec_elf.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/exec.h:

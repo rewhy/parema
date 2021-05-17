@@ -1,0 +1,2 @@
+m_coredump/libcoregrind_arm_linux_a-coredump-solaris.o: \
+ m_coredump/coredump-solaris.c

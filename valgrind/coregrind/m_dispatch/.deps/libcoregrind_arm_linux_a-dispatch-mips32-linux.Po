@@ -1,0 +1,2 @@
+m_dispatch/libcoregrind_arm_linux_a-dispatch-mips32-linux.o: \
+ m_dispatch/dispatch-mips32-linux.S

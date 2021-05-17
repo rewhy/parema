@@ -1,0 +1,42 @@
+libcoregrind_arm_linux_a-m_clientstate.o: m_clientstate.c \
+ pub_core_basics.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_vki.h ../include/pub_tool_vki.h ../include/vki/vki-linux.h \
+ ../include/vki/vki-posixtypes-arm-linux.h ../include/vki/vki-arm-linux.h \
+ ../include/vki/vki-linux-drm.h pub_core_xarray.h \
+ ../include/pub_tool_xarray.h ../include/pub_tool_basics.h \
+ pub_core_clientstate.h ../include/pub_tool_clientstate.h \
+ ../include/pub_tool_xarray.h
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_vki.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+pub_core_xarray.h:
+
+../include/pub_tool_xarray.h:
+
+../include/pub_tool_basics.h:
+
+pub_core_clientstate.h:
+
+../include/pub_tool_clientstate.h:
+
+../include/pub_tool_xarray.h:

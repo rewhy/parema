@@ -1,0 +1,2 @@
+m_mach/libcoregrind_arm_linux_a-mach_traps-x86-darwin.o: \
+ m_mach/mach_traps-x86-darwin.S

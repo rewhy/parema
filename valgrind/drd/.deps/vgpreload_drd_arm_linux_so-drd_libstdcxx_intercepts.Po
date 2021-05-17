@@ -1,0 +1,24 @@
+vgpreload_drd_arm_linux_so-drd_libstdcxx_intercepts.o: \
+ drd_libstdcxx_intercepts.c drd_basics.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ drd_clientreq.h drd.h ../include/valgrind.h ../include/pub_tool_redir.h \
+ ../config.h
+
+drd_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+drd_clientreq.h:
+
+drd.h:
+
+../include/valgrind.h:
+
+../include/pub_tool_redir.h:
+
+../config.h:

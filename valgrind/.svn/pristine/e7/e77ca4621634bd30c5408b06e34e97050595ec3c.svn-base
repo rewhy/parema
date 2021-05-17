@@ -1,0 +1,23 @@
+priv/libvex_arm_linux_a-s390_disasm.o: priv/s390_disasm.c \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ ../VEX/pub/libvex_basictypes.h priv/main_util.h priv/main_globals.h \
+ ../VEX/pub/libvex.h ../VEX/pub/libvex_basictypes.h \
+ ../VEX/pub/libvex_ir.h priv/s390_defs.h priv/s390_disasm.h
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+priv/main_util.h:
+
+priv/main_globals.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+priv/s390_defs.h:
+
+priv/s390_disasm.h:

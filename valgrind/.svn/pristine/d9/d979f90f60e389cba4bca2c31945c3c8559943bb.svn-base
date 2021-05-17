@@ -1,0 +1,75 @@
+// dt_instrument.c
+
+#include "pub_tool_basics.h"
+#include "pub_tool_tooliface.h"
+#include "pub_tool_hashtable.h"
+#include "pub_tool_libcassert.h"
+#include "pub_tool_libcbase.h"
+#include "pub_tool_machine.h"
+#include "pub_tool_mallocfree.h"
+
+#include "pub_tool_replacemalloc.h"
+#include "pub_tool_stacktrace.h"
+#include "pub_tool_xarray.h"
+
+#include "copy.h"
+#include "dt_taint.h"
+#include "dt_debug.h"
+#include "dt_wrappers.h"
+#include "dt_instrument.h"
+
+
+
+
+/* Create a new temp belonging to type 'ty' and kind 'kind' */
+static IRTemp newTemp( MCEnv *mce, IRType ty, TempKind kind) {
+	Word				newIx;
+	TempMapEnt	ent;
+	IRTemp			tmp = newIRTemp(mce->sb->tyenv, ty);
+	ent.kind		= kind;
+	ent.shadowV = IRTemp_INVALID;
+
+	newIx				= VG_(addToXA)( mce->tmpMap, &ent );
+	tl_assert(newIx == (Word)tmp);
+	return tmp;
+}
+
+/* Find the tmp currently shadowing the original temp. If none 
+ * exists so far, allocate one 
+ */
+static IRTemp findShadowTmpV( MCEnv* mce, IRTemp orig ) {
+	TempMapEnt* ent;
+	ent = (TempMapEnt *)VG_(indexXA)( mce->tmpMap, (Word)orig );
+	tl_assert(ent->kind == Orig);
+	if(ent->shadowV == IRTemp_INVALID) {
+		IRTemp tmpV = newTemp(mce, shadowTypeV(mce->sb->tyenv->types[orig]), VSh);
+		ent = (TempMapEnt *)VG_(indexXA)( mce->tmpMap, (Word)orig);
+		tl_assert(ent->kind == Orig);
+		tl_assert(ent->shadowV == IRTemp_INVALID);
+		ent->shadowV = tmpV;
+	}
+	return ent->shadowV;
+}
+
+/* Generate a 'defined' value of the given shadow type.
+ * SHould only be supplied shadow types (Bit/I8/I16/I32/U64).
+ */
+static IRExpr* definedOfType( IRType ty ) {
+	switch (ty) {                                                                                                                                                                 
+		case Ity_I1:   return IRExpr_Const(IRConst_U1(False));                                                                                                                      
+		case Ity_I8:   return IRExpr_Const(IRConst_U8(0));                                                                                                                          
+		case Ity_I16:  return IRExpr_Const(IRConst_U16(0));                                                                                                                         
+		case Ity_I32:  return IRExpr_Const(IRConst_U32(0));                                                                                                                         
+		case Ity_I64:  return IRExpr_Const(IRConst_U64(0));                                                                                                                         
+		case Ity_I128: return i128_const_zero();                                                                                                                                    
+		case Ity_V128: return IRExpr_Const(IRConst_V128(0x0000));                                                                                                                   
+		default:       VG_(tool_panic)("dt_instrument.c: definedOfType");                                                                                                           
+	} 
+
+}
+
+
+
+static Bool checkForBogusLiterals ( /*FLAT*/ IRStmt* st ) {
+	return True;
+}

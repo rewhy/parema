@@ -1,0 +1,65 @@
+libcoregrind_arm_linux_a-m_sbprofile.o: m_sbprofile.c pub_core_basics.h \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_transtab.h pub_core_transtab_asm.h \
+ ../include/pub_tool_transtab.h ../include/pub_tool_basics.h \
+ ../VEX/pub/libvex.h ../VEX/pub/libvex_basictypes.h \
+ ../VEX/pub/libvex_ir.h pub_core_libcbase.h \
+ ../include/pub_tool_libcbase.h pub_core_libcprint.h \
+ ../include/pub_tool_libcprint.h pub_core_libcassert.h \
+ ../include/pub_tool_libcassert.h pub_core_debuginfo.h \
+ ../include/pub_tool_debuginfo.h ../include/pub_tool_xarray.h \
+ pub_core_translate.h pub_core_options.h ../include/pub_tool_options.h \
+ pub_core_xarray.h ../include/pub_tool_xarray.h pub_core_sbprofile.h
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_transtab.h:
+
+pub_core_transtab_asm.h:
+
+../include/pub_tool_transtab.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+pub_core_libcbase.h:
+
+../include/pub_tool_libcbase.h:
+
+pub_core_libcprint.h:
+
+../include/pub_tool_libcprint.h:
+
+pub_core_libcassert.h:
+
+../include/pub_tool_libcassert.h:
+
+pub_core_debuginfo.h:
+
+../include/pub_tool_debuginfo.h:
+
+../include/pub_tool_xarray.h:
+
+pub_core_translate.h:
+
+pub_core_options.h:
+
+../include/pub_tool_options.h:
+
+pub_core_xarray.h:
+
+../include/pub_tool_xarray.h:
+
+pub_core_sbprofile.h:

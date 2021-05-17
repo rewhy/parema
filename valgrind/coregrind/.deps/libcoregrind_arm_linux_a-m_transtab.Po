@@ -1,0 +1,112 @@
+libcoregrind_arm_linux_a-m_transtab.o: m_transtab.c pub_core_basics.h \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_debuglog.h pub_core_machine.h ../include/pub_tool_machine.h \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex.h \
+ ../VEX/pub/libvex_basictypes.h ../VEX/pub/libvex_ir.h \
+ pub_core_libcbase.h ../include/pub_tool_libcbase.h pub_core_vki.h \
+ ../include/pub_tool_vki.h ../include/vki/vki-linux.h \
+ ../include/vki/vki-posixtypes-arm-linux.h ../include/vki/vki-arm-linux.h \
+ ../include/vki/vki-linux-drm.h pub_core_libcproc.h ../config.h \
+ ../include/pub_tool_libcproc.h ../include/pub_tool_vki.h \
+ pub_core_libcassert.h ../include/pub_tool_libcassert.h \
+ pub_core_libcprint.h ../include/pub_tool_libcprint.h pub_core_options.h \
+ ../include/pub_tool_options.h pub_core_xarray.h \
+ ../include/pub_tool_xarray.h pub_core_tooliface.h \
+ ../include/pub_tool_tooliface.h ../include/pub_tool_errormgr.h \
+ ../include/pub_tool_execontext.h pub_core_transtab.h \
+ pub_core_transtab_asm.h ../include/pub_tool_transtab.h \
+ pub_core_aspacemgr.h ../include/pub_tool_aspacemgr.h \
+ pub_core_mallocfree.h ../include/pub_tool_mallocfree.h \
+ pub_core_dispatch.h pub_core_dispatch_asm.h \
+ ../VEX/pub/libvex_trc_values.h
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_debuglog.h:
+
+pub_core_machine.h:
+
+../include/pub_tool_machine.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+../VEX/pub/libvex_ir.h:
+
+pub_core_libcbase.h:
+
+../include/pub_tool_libcbase.h:
+
+pub_core_vki.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+pub_core_libcproc.h:
+
+../config.h:
+
+../include/pub_tool_libcproc.h:
+
+../include/pub_tool_vki.h:
+
+pub_core_libcassert.h:
+
+../include/pub_tool_libcassert.h:
+
+pub_core_libcprint.h:
+
+../include/pub_tool_libcprint.h:
+
+pub_core_options.h:
+
+../include/pub_tool_options.h:
+
+pub_core_xarray.h:
+
+../include/pub_tool_xarray.h:
+
+pub_core_tooliface.h:
+
+../include/pub_tool_tooliface.h:
+
+../include/pub_tool_errormgr.h:
+
+../include/pub_tool_execontext.h:
+
+pub_core_transtab.h:
+
+pub_core_transtab_asm.h:
+
+../include/pub_tool_transtab.h:
+
+pub_core_aspacemgr.h:
+
+../include/pub_tool_aspacemgr.h:
+
+pub_core_mallocfree.h:
+
+../include/pub_tool_mallocfree.h:
+
+pub_core_dispatch.h:
+
+pub_core_dispatch_asm.h:
+
+../VEX/pub/libvex_trc_values.h:

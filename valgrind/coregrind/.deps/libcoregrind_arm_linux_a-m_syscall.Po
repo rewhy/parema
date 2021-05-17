@@ -1,0 +1,51 @@
+libcoregrind_arm_linux_a-m_syscall.o: m_syscall.c pub_core_basics.h \
+ ../include/pub_tool_basics.h ../VEX/pub/libvex_basictypes.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ pub_core_libcassert.h ../include/pub_tool_libcassert.h \
+ ../include/pub_tool_basics.h pub_core_vki.h ../include/pub_tool_vki.h \
+ ../include/vki/vki-linux.h ../include/vki/vki-posixtypes-arm-linux.h \
+ ../include/vki/vki-arm-linux.h ../include/vki/vki-linux-drm.h \
+ pub_core_vkiscnums.h pub_core_vkiscnums_asm.h \
+ ../include/pub_tool_vkiscnums_asm.h \
+ ../include/vki/vki-scnums-arm-linux.h ../include/pub_tool_vkiscnums.h \
+ ../include/pub_tool_vkiscnums_asm.h pub_core_syscall.h
+
+pub_core_basics.h:
+
+../include/pub_tool_basics.h:
+
+../VEX/pub/libvex_basictypes.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+pub_core_libcassert.h:
+
+../include/pub_tool_libcassert.h:
+
+../include/pub_tool_basics.h:
+
+pub_core_vki.h:
+
+../include/pub_tool_vki.h:
+
+../include/vki/vki-linux.h:
+
+../include/vki/vki-posixtypes-arm-linux.h:
+
+../include/vki/vki-arm-linux.h:
+
+../include/vki/vki-linux-drm.h:
+
+pub_core_vkiscnums.h:
+
+pub_core_vkiscnums_asm.h:
+
+../include/pub_tool_vkiscnums_asm.h:
+
+../include/vki/vki-scnums-arm-linux.h:
+
+../include/pub_tool_vkiscnums.h:
+
+../include/pub_tool_vkiscnums_asm.h:
+
+pub_core_syscall.h:

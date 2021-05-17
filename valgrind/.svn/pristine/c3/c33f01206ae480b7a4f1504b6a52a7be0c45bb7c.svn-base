@@ -1,0 +1,106 @@
+vbit_test-util.o: util.c \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdio.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/android/api-level.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/types.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stddef.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdint.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdint.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_wchar_limits.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/posix_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/stddef.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/compiler.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/posix_types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/types.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/kernel.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/sysmacros.h \
+ /home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdlib.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/string.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/malloc.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/alloca.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/strings.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/memory.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/assert.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/endian.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/endian.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/endian.h \
+ /home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/inttypes.h \
+ vtest.h ../../../VEX/pub/libvex.h ../../../VEX/pub/libvex_basictypes.h \
+ ../../../VEX/pub/libvex_ir.h vbits.h
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdio.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/android/api-level.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stddef.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdint.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdint.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/_wchar_limits.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/posix_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/stddef.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/compiler.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/posix_types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/asm/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/linux/types.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/kernel.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/sysmacros.h:
+
+/home/jeremy/tools/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include/stdarg.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/stdlib.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/string.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/malloc.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/alloca.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/strings.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/memory.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/assert.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/endian.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/sys/endian.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/machine/endian.h:
+
+/home/jeremy/tools/android-ndk-r10e/platforms/android-19/arch-arm/usr/include/inttypes.h:
+
+vtest.h:
+
+../../../VEX/pub/libvex.h:
+
+../../../VEX/pub/libvex_basictypes.h:
+
+../../../VEX/pub/libvex_ir.h:
+
+vbits.h:
