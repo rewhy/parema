@@ -1,4 +1,4 @@
-# example-baidu Handler
+# Demo: Handlers of Baidu VM
 
 This folder contains the following unprocessed and processed binary contents dumped from `examples\testapk\empty-baidu.apk`:
 
