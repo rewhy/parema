@@ -9,9 +9,15 @@ In this project, we proposed a novel framework to investigate the VM-based Andro
 For more details, please refer to the following paper.
 
 @inproceedings{xue2021parema,
+
   title={Parema: an unpacking framework for demystifying VM-based Android packers},
+  
   author={Xue, Lei and Yan, Yuxiao and Yan, Luyi and Jiang, Muhui and Luo, Xiapu and Wu, Dinghao and Zhou, Yajin},
+  
   booktitle={Proceedings of the 30th ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  
   pages={152--164},
+  
   year={2021}
+  
 }
